@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="the_buttons">
+    <input list="countries" name="country" id="country-input" [(ngModel)]="userInput" placeholder="Type your guess here" />
+    <button (click)="makeGuess()">Guess</button>
+
+    <datalist id="countries">
+      <option *ngFor="let country of countries" [value]="country"></option>
+    </datalist>
+  </div>
+
+  <div class="table_content">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Continent</th>
+          <th>Region</th>
+          <th>Area</th>
+          <th>Population</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of guessedCountries" [ngClass]="{'success': country.success}">
+          <td [ngClass]="{'correct': country.nameResponse, 'incorrect': !country.nameResponse}">
+            {{ country.name}}  {{getResponseIconBool(country.nameResponse)}}
+          </td>
+          <td [ngClass]="{'correct': country.continentResponse, 'incorrect': !country.continentResponse}">
+            {{ country.continent}} {{getResponseIconBool(country.continentResponse)}}
+          </td>
+          <td [ngClass]="{'correct': country.regionResponse, 'incorrect': !country.regionResponse}">
+            {{ country.region}} {{getResponseIconBool(country.regionResponse) }}
+          </td>
+          <td>
+            {{ country.area | number:'1.0-0' }}km² <span [ngClass]="getResponseClass(country.areaResponse)">{{ getResponseIcon(country.areaResponse)}} </span>
+          </td>
+          <td>
+            {{ (country.population / 1000000) | number:'1.2-2' }}m <span [ngClass]="getResponseClass(country.populationResponse)">{{ getResponseIcon(country.populationResponse) }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.the_buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+  .the_buttons input, .the_buttons button {
+    margin: 0 5px;
+  }
+
+.table_content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: center;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+.success {
+  background-color: darkgreen !important;
+  color: white !important;
+  border:none;
+}
+
+.success .correct{
+  color:white;
+}
+
+.success td {
+  border: none; /* Αφαίρεση των borders μεταξύ των στηλών */
+}
+
+.correct {
+  color:darkgreen;
+  font-weight: bolder;
+}
+
+.incorrect {
+  color: darkred;
+  font-weight: bolder;
+}
+
+.guess-lower {
+  color: red;
+}
+
+.guess-higher {
+  color: green;
+}
