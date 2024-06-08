@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .the_buttons {
@@ -11,9 +23,28 @@
   margin-bottom: 20px;
 }
 
-  .the_buttons input, .the_buttons button {
-    margin: 0 5px;
-  }
+.the_buttons input, .the_buttons button {
+  margin: 0 10px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.the_buttons input {
+  width: 250px;
+}
+
+.the_buttons button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.the_buttons button:hover {
+  background-color: #45a049;
+}
 
 .table_content {
   display: flex;
@@ -23,40 +54,47 @@
 
 table {
   border-collapse: collapse;
-  width: 80%;
+  width: 90%;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-  padding: 8px 12px;
-  text-align: center;
+  padding: 12px 20px;
+  text-align: center; /* Center-align text in table */
+  border-bottom: 1px solid #ddd;
 }
 
 thead {
+  background-color: #2196F3; /* Changed to blue */
+  color: white;
+}
+
+tbody tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
 }
 
 .success {
   background-color: darkgreen !important;
-  color: white !important;
-  border:none;
+  color: white !important; /* Ensure text color is white in success rows */
 }
 
-.success .correct{
-  color:white;
+.sucess .correct{
+  color: white !important; /* Make text color white when in success rows */
 }
 
-.success td {
-  border: none; /* Αφαίρεση των borders μεταξύ των στηλών */
-}
-
-.correct {
-  color:darkgreen;
-  font-weight: bolder;
+.correct{
+    color:darkgreen;
+    font-weight: bold;
 }
 
 .incorrect {
   color: darkred;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .guess-lower {
@@ -66,3 +104,5 @@ thead {
 .guess-higher {
   color: green;
 }
+
+
