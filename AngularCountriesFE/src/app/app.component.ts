@@ -51,6 +51,15 @@ export class AppComponent implements OnInit {
     );
   }
 
+  playAgain(): void {
+    this.sessionid = null;
+    this.GuessCount = 1;
+    this.userInput = "";
+    this.guessedCountries = [];
+    this.sucessfullGuess = false;
+  }
+
+
   getResponseClass(response: number): string {
     if (response === 0) {
       return 'correct';
