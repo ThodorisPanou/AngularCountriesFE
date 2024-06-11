@@ -12,6 +12,10 @@ export class GuessResponse {
     public area: number,
     public areaResponse: number,
     public continent: string,
-    public continentResponse: boolean
+    public continentResponse: boolean,
+    public latitude: number,
+    public latitudeResponse: number,
+    public longitude: number,
+    public longitudeResponse: number
   ) { }
 }

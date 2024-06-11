@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   sessionid: string|null = null;
   GuessCount: number = 1;
   response: GuessResponse | null = null;
+  sucessfullGuess: boolean = false;
+
   constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class AppComponent implements OnInit {
         this.GuessCount = this.response.guessCount;
         this.userInput = "";
         this.guessedCountries.push(this.response);
+        this.sucessfullGuess = this.response.success;
       },
       (error) => {
         console.error('Error receiving response', error);

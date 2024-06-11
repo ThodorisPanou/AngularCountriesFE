@@ -17,6 +17,8 @@
           <th>Region</th>
           <th>Area</th>
           <th>Population</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
         </tr>
       </thead>
       <tbody>
@@ -36,8 +38,17 @@
           <td>
             {{ (country.population / 1000000) | number:'1.2-2' }}m <span [ngClass]="getResponseClass(country.populationResponse)">{{ getResponseIcon(country.populationResponse) }}</span>
           </td>
+          <td>
+            {{ country.latitude | number:'1.2-2' }} <span [ngClass]="getResponseClass(country.latitudeResponse)">{{ getResponseIcon(country.latitudeResponse) }}</span>
+          </td>
+          <td>
+            {{ country.longitude | number:'1.2-2' }} <span [ngClass]="getResponseClass(country.longitudeResponse)">{{ getResponseIcon(country.longitudeResponse) }}</span>
+          </td>
         </tr>
       </tbody>
     </table>
+    <div class="message" *ngIf="sucessfullGuess">
+        You won! Congratulations!!
+    </div>
   </div>
 </div>
