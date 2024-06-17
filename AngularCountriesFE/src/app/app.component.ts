@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
   countries: any[] = [];
   guessedCountries: GuessResponse[] = [];
   sessionid: string|null = null;
-  GuessCount: number = 1;
+  GuessCount: number = 0;
+  MaxGuess: number = 6;
   response: GuessResponse | null = null;
   sucessfullGuess: boolean = false;
   fetchC: boolean = false;

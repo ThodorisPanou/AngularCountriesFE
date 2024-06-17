@@ -22,28 +22,34 @@
   margin-bottom: 20px;
 }
 
-  .the_buttons input, .the_buttons button {
-    margin: 0 10px;
-    padding: 10px 15px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
+.the_buttons input, .the_buttons button {
+  margin: 0 10px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
 
-  .the_buttons input {
-    width: 250px;
-  }
+.the_buttons input {
+  width: 250px;
+}
 
-  .the_buttons button {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-  }
+.the_buttons button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
 
-    .the_buttons button:hover {
-      background-color: #45a049;
-    }
+.the_buttons button:hover {
+  background-color: #45a049;
+}
+
+.the_buttons button:disabled {
+  background-color: grey;
+  color: black;
+  cursor: not-allowed;
+}
 
 .table_content {
   flex-direction: column;
@@ -83,10 +89,17 @@ tbody tr:hover {
   background-color: #a2a2a2;
 }
 
+.count{
+    font-size:25px;
+    color:white;
+    font-weight:400;
+}
+
 .success {
   background-color: darkgreen !important;
   color: white !important; /* Ensure text color is white in success rows */
 }
+
 
 .correct {
   color: darkgreen;
@@ -124,9 +137,13 @@ tbody tr:hover {
   text-align: center;
 }
 
+.message#lost{
+    color:red;
+}
+
 
 .button-71 {
-  margin-top:10px;
+  margin-top: 10px;
   background-color: #0078d0;
   border: 0;
   border-radius: 56px;
