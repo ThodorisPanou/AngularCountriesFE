@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-}
+
+
+
 
 .container {
   display: flex;
@@ -12,10 +10,11 @@ body {
   align-items: center;
   margin-top: 40px;
   padding: 20px;
-  background-color: #fff;
+  background-color: transparent;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+
 
 .the_buttons {
   display: flex;
@@ -72,12 +71,16 @@ thead {
   color: white;
 }
 
+tbody tr{
+    background-color: white;
+}
+
 tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #dcdcdc;
 }
 
 tbody tr:hover {
-  background-color: #f1f1f1;
+  background-color: #a2a2a2;
 }
 
 .success {
@@ -121,23 +124,9 @@ tbody tr:hover {
   text-align: center;
 }
 
-.message button {
-  margin-top: 10px;
-  width: 40%;
-  height: 40px;
-  border: 1px solid #2196F3;
-  border-radius: 50%;
-  background-color: black;
-  color: white;
-}
-
-.message button:hover {
-  background-color: #2196F3;
-  color: white;
-}
 
 .button-71 {
-  margin-top: 10px;
+  margin-top:10px;
   background-color: #0078d0;
   border: 0;
   border-radius: 56px;
@@ -148,6 +137,7 @@ tbody tr:hover {
   font-size: 18px;
   font-weight: 600;
   outline: 0;
+  padding: 16px 21px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -178,5 +168,118 @@ tbody tr:hover {
 
 @media (min-width: 768px) {
   .button-71 {
+    padding: 16px 48px;
+  }
+}
+
+.waiting_screen{
+    width:100%;
+    height:100%;
+    background-color:white;
+    text-align: center;
+}
+
+body {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin: 0 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.planet-container {
+  border-radius: 50%;
+  box-shadow: 5px -3px 10px 3px #5e90f1;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  width: 500px;
+  z-index: 1;
+}
+
+.night {
+  animation: rotate-night 80s linear infinite;
+  background-image: url(https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg);
+  background-size: 200%;
+  height: 500px;
+  position: absolute;
+  width: 500px;
+  z-index: 2;
+}
+
+.day {
+  animation: rotate-day 80s linear infinite;
+  background-image: url(https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg);
+  background-size: 200%;
+  border-left: solid 1px black;
+  border-radius: 50%;
+  box-shadow: 5px 0 20px 10px #040615 inset;
+  height: 500px;
+  margin-left: 110px;
+  position: absolute;
+  width: 500px;
+  z-index: 3;
+}
+
+.clouds {
+  animation: rotate-day 50s linear infinite, spin-clouds 100s ease infinite;
+  background-image: url(https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg);
+  background-size: 200%;
+  border-radius: 50%;
+  box-shadow: 5px 0 20px 10px #040615 inset, -9px 0px 20px 10px #5e90f1 inset;
+  height: 500px;
+  margin-left: 100px;
+  opacity: 0.45;
+  position: absolute;
+  width: 500px;
+  z-index: 4;
+}
+
+.inner-shadow {
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: -5px 0 10px 1px #152b57 inset, 5px 0 10px 1px #040615 inset;
+  height: 500px;
+  margin-left: 0;
+  position: absolute;
+  width: 500px;
+  z-index: 5;
+}
+
+@keyframes rotate-day {
+  0% {
+    background-position: 120% 0;
+  }
+
+  100% {
+    background-position: -80% 0;
+  }
+}
+
+@keyframes rotate-night {
+  0% {
+    background-position: calc(120% + 120px) 0;
+  }
+
+  100% {
+    background-position: calc(-80% + 120px) 0;
+  }
+}
+
+@keyframes spin-clouds {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
   }
 }

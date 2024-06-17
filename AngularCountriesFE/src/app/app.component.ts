@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   GuessCount: number = 1;
   response: GuessResponse | null = null;
   sucessfullGuess: boolean = false;
+  fetchC: boolean = false;
+  fetchLoading: boolean = true;
 
   constructor(private countryService: CountryService) { }
 
@@ -27,28 +29,37 @@ export class AppComponent implements OnInit {
     this.countryService.getCountries().subscribe(
       (data) => {
         this.countries = data;
+        this.fetchC = true;
       },
       (error) => {
         console.error('Error fetching countries', error);
+        this.fetchC = false;
+        this.fetchLoading = false;
       }
     );
   }
 
   makeGuess(): void {
-    var guess = new GuessRequest(this.sessionid, this.userInput, this.GuessCount);
-    this.countryService.guessCountry(guess).subscribe(
-      (data: GuessResponse) => {
-        this.response = data;
-        this.sessionid = this.response.sessionID;
-        this.GuessCount = this.response.guessCount;
-        this.userInput = "";
-        this.guessedCountries.push(this.response);
-        this.sucessfullGuess = this.response.success;
-      },
-      (error) => {
-        console.error('Error receiving response', error);
-      }
-    );
+    if (this.countries.includes(this.userInput)) {
+      var guess = new GuessRequest(this.sessionid, this.userInput, this.GuessCount);
+      this.countryService.guessCountry(guess).subscribe(
+        (data: GuessResponse) => {
+          this.response = data;
+          this.sessionid = this.response.sessionID;
+          this.GuessCount = this.response.guessCount;
+          this.userInput = "";
+          this.guessedCountries.push(this.response);
+          this.sucessfullGuess = this.response.success;
+        },
+        (error) => {
+          console.error('Error receiving response', error);
+        }
+      );
+    }
+    else {
+      console.log("Country name doesnt exist");
+      this.userInput = '';
+    }
   }
 
   playAgain(): void {

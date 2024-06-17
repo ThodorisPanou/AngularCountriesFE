@@ -91,7 +91,8 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "assets",
-              "favicon.png"
+              "favicon.png",
+              "earth.jpg"
             ],
             "styles": [
               "src/styles.css"
