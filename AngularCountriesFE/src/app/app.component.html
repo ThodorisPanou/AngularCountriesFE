@@ -2,7 +2,7 @@
   <div class="container" *ngIf="fetchC">
     <div class="the_buttons">
       <input list="countries" name="country" id="country-input" [(ngModel)]="userInput" placeholder="Type your guess here" />
-      <button class="guessbutton" (click)="makeGuess()" [disabled]="GuessCount>MaxGuess">Guess</button>
+      <button class="guessbutton" (click)="makeGuess()" [disabled]="(GuessCount >= MaxGuess) || sucessfullGuess">Guess</button>
 
       <datalist id="countries">
         <option *ngFor="let country of countries" [value]="country"></option>
@@ -52,7 +52,7 @@
         You won! Congratulations!!
         <button class="button-71" role="button" (click)="playAgain()">Play Again</button>
       </div>
-      <div class="message" id="lost" *ngIf="(sucessfullGuess || GuessCount>MaxGuess)">
+      <div class="message" id="lost" *ngIf="(!sucessfullGuess && GuessCount>=MaxGuess)">
         You Lost!
         <button class="button-71" role="button" (click)="playAgain()">Play Again</button>
       </div>

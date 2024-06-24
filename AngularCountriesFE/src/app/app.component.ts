@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   sucessfullGuess: boolean = false;
   fetchC: boolean = false;
   fetchLoading: boolean = true;
+  guessClosed: boolean = (this.GuessCount > this.MaxGuess) || (this.sucessfullGuess);
 
   constructor(private countryService: CountryService) { }
 
@@ -65,7 +66,7 @@ export class AppComponent implements OnInit {
 
   playAgain(): void {
     this.sessionid = null;
-    this.GuessCount = 1;
+    this.GuessCount = 0;
     this.userInput = "";
     this.guessedCountries = [];
     this.sucessfullGuess = false;
