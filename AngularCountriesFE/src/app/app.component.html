@@ -9,7 +9,7 @@
       </datalist>
     </div>
     <div class="count">Guess: {{GuessCount}} / {{this.MaxGuess}}</div>
-    <div class="table_content">
+    <div class="table_content" *ngIf="GuessCount>0">
       <table border="1">
         <thead>
           <tr>
