@@ -42,9 +42,9 @@
   cursor: pointer;
 }
 
-.the_buttons button:hover {
+/*.the_buttons button:hover {
   background-color: #45a049;
-}
+}*/
 
 .the_buttons button:disabled {
   background-color: grey;
@@ -52,7 +52,7 @@
   cursor: not-allowed;
 }
 
-.table_content {
+/*.table_content {
   flex-direction: column;
   display: flex;
   justify-content: center;
@@ -69,26 +69,23 @@ table {
 
 th, td {
   padding: 12px 20px;
-  text-align: center; /* Center-align text in table */
-  border-bottom: 1px solid #ddd;
+  text-align: center;*/ /* Center-align text in table */
+  /*border-bottom: 1px solid #ddd;
 }
 
 thead {
-  background-color: #2196F3; /* Changed to blue */
-  color: white;
+  background-color: #2196F3;*/ /* Changed to blue */
+  /*color: white;
 }
 
 tbody tr{
     background-color: white;
-}
+}*/
 
-tbody tr:nth-child(even) {
-  background-color: #dcdcdc;
-}
 
-tbody tr:hover {
+/*tbody tr:hover {
   background-color: #a2a2a2;
-}
+}*/
 
 .count{
     font-size:25px;
