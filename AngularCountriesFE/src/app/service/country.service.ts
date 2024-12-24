@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { GuessRequest } from './guess-request.model';
-import { GuessResponse } from './guess-response.model';
+import { GuessRequest } from '../data/guess-request.model';
+import { GuessResponse } from '../data/guess-response.model';
 
 @Injectable({
   providedIn: 'root'

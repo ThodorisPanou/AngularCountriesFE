@@ -1,0 +1,21 @@
+<div class="start-container">
+  <h1>Select Difficulty</h1>
+  <div class="difficulty-options">
+    <div class="difficulty easy"
+         (click)="selectDifficulty('easy')"
+         [class.selected]="selectedDifficulty === 'easy'">
+      EASY
+    </div>
+    <div class="difficulty medium"
+         (click)="selectDifficulty('medium')"
+         [class.selected]="selectedDifficulty === 'medium'">
+      MEDIUM
+    </div>
+    <div class="difficulty hard"
+         (click)="selectDifficulty('hard')"
+         [class.selected]="selectedDifficulty === 'hard'">
+      HARD
+    </div>
+  </div>
+  <button (click)="startGame()">Play</button>
+</div>

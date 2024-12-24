@@ -1,0 +1,78 @@
+<div class="container" *ngIf="fetchC">
+  <div class="the_buttons">
+    <input list="countries" name="country" id="country-input" [(ngModel)]="userInput" placeholder="Type your guess here" />
+    <button class="guessbutton" (click)="makeGuess()" [disabled]="(GuessCount >= MaxGuess) || sucessfullGuess">Guess</button>
+
+    <datalist id="countries">
+      <option *ngFor="let country of countries" [value]="country"></option>
+    </datalist>
+  </div>
+  <div class="count">Guess: {{GuessCount}} / {{this.MaxGuess}}</div>
+  <div class="table_content" *ngIf="GuessCount > 0">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Continent</th>
+          <th>Region</th>
+          <th>Area</th>
+          <th>Population</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of guessedCountries" [ngClass]="{'success': country.success}">
+          <td [ngClass]="{'correct': country.nameResponse, 'incorrect': !country.nameResponse}">
+            {{ country.name }} {{ getResponseIconBool(country.nameResponse) }}
+          </td>
+          <td [ngClass]="{'correct': country.continentResponse, 'incorrect': !country.continentResponse}">
+            {{ country.continent }} {{ getResponseIconBool(country.continentResponse) }}
+          </td>
+          <td [ngClass]="{'correct': country.regionResponse, 'incorrect': !country.regionResponse}">
+            {{ country.region }} {{ getResponseIconBool(country.regionResponse) }}
+          </td>
+          <td>
+            {{ country.area | number:'1.0-0' }}km²
+            <span [ngClass]="getResponseClass(country.areaResponse)">{{ getResponseIcon(country.areaResponse) }}</span>
+          </td>
+          <td>
+            {{ (country.population / 1000000) | number:'1.2-2' }}m
+            <span [ngClass]="getResponseClass(country.populationResponse)">{{ getResponseIcon(country.populationResponse) }}</span>
+          </td>
+          <td>
+            {{ country.latitude | number:'1.2-2' }}
+            <span [ngClass]="getResponseClass(country.latitudeResponse)">{{ getResponseIcon(country.latitudeResponse) }}</span>
+          </td>
+          <td>
+            {{ country.longitude | number:'1.2-2' }}
+            <span [ngClass]="getResponseClass(country.longitudeResponse)">{{ getResponseIcon(country.longitudeResponse) }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="message" *ngIf="sucessfullGuess">
+      You won! Congratulations!!
+      <button class="button-71" role="button" (click)="playAgain()">Play Again</button>
+    </div>
+    <div class="message" id="lost" *ngIf="(!sucessfullGuess && GuessCount >= MaxGuess)">
+      You Lost!
+      <button class="button-71" role="button" (click)="playAgain()">Play Again</button>
+    </div>
+  </div>
+</div>
+
+<div class="planet-container" *ngIf="(fetchLoading && !fetchC)">
+  <div class="night"></div>
+  <div class="day"></div>
+  <div class="clouds"></div>
+  <div class="inner-shadow"></div>
+</div>
+<div class="planet-container" *ngIf="(!fetchLoading && !fetchC)">
+  Error Fetching Countries
+  <div class="night"></div>
+  <div class="day"></div>
+  <div class="clouds"></div>
+  <div class="inner-shadow"></div>
+</div>
