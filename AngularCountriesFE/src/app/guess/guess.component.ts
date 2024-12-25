@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GuessResponse } from '../data/guess-response.model';
 import { CountryService } from '../service/country.service';
 import { GuessRequest } from '../data/guess-request.model';
+import { GameSettingsService } from '../service/game-settings.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-guess',
@@ -12,7 +14,7 @@ export class GuessComponent implements OnInit {
   userInput: string = '';
   countries: any[] = [];
   guessedCountries: GuessResponse[] = [];
-  sessionid: string | null = null;
+  sessionid: string ="";
   GuessCount: number = 0;
   MaxGuess: number = 6;
   response: GuessResponse | null = null;
@@ -21,9 +23,13 @@ export class GuessComponent implements OnInit {
   fetchLoading: boolean = true;
   guessClosed: boolean = (this.GuessCount > this.MaxGuess) || (this.sucessfullGuess);
 
-  constructor(private countryService: CountryService) { }
+  constructor(private countryService: CountryService,
+    private gameSettingsService: GameSettingsService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.sessionid = this.gameSettingsService.getToken();
+    console.log("session id: " + this.sessionid);
     this.fetchCountries();
   }
 
@@ -47,7 +53,6 @@ export class GuessComponent implements OnInit {
       this.countryService.guessCountry(guess).subscribe(
         (data: GuessResponse) => {
           this.response = data;
-          this.sessionid = this.response.sessionID;
           this.GuessCount = this.response.guessCount;
           this.userInput = "";
           this.guessedCountries.push(this.response);
@@ -65,11 +70,7 @@ export class GuessComponent implements OnInit {
   }
 
   playAgain(): void {
-    this.sessionid = null;
-    this.GuessCount = 0;
-    this.userInput = "";
-    this.guessedCountries = [];
-    this.sucessfullGuess = false;
+    this.router.navigate(['/start']);
   }
 
 
