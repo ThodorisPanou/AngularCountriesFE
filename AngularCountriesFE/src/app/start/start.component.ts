@@ -18,6 +18,7 @@ export class StartComponent implements OnInit {
 
   selectedDifficulty: string = '';
   access_token: string = '';
+  loading: boolean = false;
 
   ngOnInit(): void {
     this.gameSettingsService.difficulty$.subscribe(difficulty => {
@@ -35,11 +36,12 @@ export class StartComponent implements OnInit {
 
   startGame() {
     if (this.selectedDifficulty) {
+      this.loading = true;
       var settings = new StartGameSettings(this.selectedDifficulty,""); 
       this.countryService.startGame(settings).subscribe(
         (data) => {
-          console.log("in startgame(): token is " + data.accessToken);
           this.gameSettingsService.setToken(data.accessToken ?? "");
+          this.loading = false;
           this.router.navigate(['/guess']);
         },
         (error) => {

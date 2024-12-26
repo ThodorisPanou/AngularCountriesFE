@@ -37,6 +37,7 @@ export class GuessComponent implements OnInit {
     this.countryService.getCountries().subscribe(
       (data) => {
         this.countries = data;
+        console.log(data);
         this.fetchC = true;
       },
       (error) => {
@@ -104,6 +105,13 @@ export class GuessComponent implements OnInit {
     }
   }
 
+  showInfo(type: string): void {
+    if (type === 'latitude') {
+      alert('Latitude is a geographic coordinate that specifies the north-south position of a point on the Earths surface.If one country has a higher latitude than another, it means it is located farther north.A latitude of 0° corresponds to the equator.Positive latitudes are located north of the equator, while negative latitudes are south of the equator.');
+    } else if (type === 'longitude') {
+      alert('Longitude is a geographic coordinate that specifies the east-west position of a point on the Earths surface.If one country has a higher longitude than another, it means it is located farther east.A longitude of 0° corresponds to Greenwich, London.Positive longitudes are located east of Greenwich, while negative longitudes are west of Greenwich.');
+    }
+  }
 
 }
 

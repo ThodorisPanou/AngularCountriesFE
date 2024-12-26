@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+datalist option {
+  white-space: nowrap;
+}
 
 .styled-table {
   border-collapse: collapse;
@@ -10,6 +13,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   table-layout: auto; /* Προσαρμόζει το πλάτος βάσει του περιεχομένου */
   width: auto; /* Επιτρέπει στο τραπέζι να προσαρμόζεται στο περιεχόμενο */
+  overflow-x:auto;
 }
 
   .styled-table thead tr {
@@ -31,9 +35,6 @@
     border-bottom: 1px solid #dddddd;
   }
 
-    /*    .styled-table tbody tr:nth-of-type(even) {
-      background-color: #f3f3f3;
-    }*/
 
     .styled-table tbody tr:last-of-type {
       border-bottom: 2px solid #343a40;
@@ -109,9 +110,6 @@ tr.success {
     cursor: pointer;
   }
 
-    /*.the_buttons button:hover {
-  background-color: #45a049;
-}*/
 
     .the_buttons button:disabled {
       background-color: grey;
@@ -119,44 +117,10 @@ tr.success {
       cursor: not-allowed;
     }
 
-/*.table_content {
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-}
-
-table {
-  border-collapse: collapse;
-  width: 90%;
-  margin-top: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-th, td {
-  padding: 12px 20px;
-  text-align: center;*/ /* Center-align text in table */
-/*border-bottom: 1px solid #ddd;
-}
-
-thead {
-  background-color: #2196F3;*/ /* Changed to blue */
-/*color: white;
-}
-
-tbody tr{
-    background-color: white;
-}*/
-
-
-/*tbody tr:hover {
-  background-color: #a2a2a2;
-}*/
 
 .count {
   font-size: 25px;
-  color: white;
+  color: black;
   font-weight: 400;
 }
 
@@ -229,12 +193,14 @@ tbody tr{
     transform: scale(1.05);
   }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .button-71 {
     padding: 16px 48px;
   }
-}
 
+
+ 
+}
 .waiting_screen {
   width: 100%;
   height: 100%;
@@ -254,3 +220,7 @@ body {
   width: 100%;
 }
 
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Ενεργοποιεί την οριζόντια κύλιση */
+}
