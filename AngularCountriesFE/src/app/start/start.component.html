@@ -17,6 +17,9 @@
       HARD
     </div>
   </div>
-  <button (click)="startGame()">Play</button>
-  <div class="loading_start" *ngIf="loading"> Starting Game...<</div>
+  <button *ngIf="!loading" (click)="startGame()">Play</button>
+  <div class="loading_start" *ngIf="loading">
+    <div class="loader"></div>
+    <span>Starting Game</span>
+  </div>
 </div>

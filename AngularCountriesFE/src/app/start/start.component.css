@@ -5,33 +5,34 @@ body{
 .start-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: #dcd2d0;
-  background-image: linear-gradient(132deg, #dcd2d0 0%, #908a89 100%);
+  background-image: linear-gradient(132deg, #00117e 0%, #002b07 100%);
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  color:white;
+  font-size: 2.5rem;
 }
 
 .difficulty-options {
   display: flex;
-  justify-content: center;
-  gap: 20px; /* Απόσταση ανάμεσα στα κουμπιά */
+  justify-content: space-evenly;
+  width:50%;
   margin-bottom: 20px;
 }
 
 .difficulty {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: white;
   cursor: pointer;
@@ -50,25 +51,76 @@ h1 {
     background-color: #f44336; /* Κόκκινο */
   }
 
-  .difficulty:hover {
+  .difficulty:hover , .selected {
     transform: scale(1.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.7rem;
+    font-weight:bold;
   }
 
 .selected {
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
+  color: black;
+}
+
+.selected.easy {
+  background-color: #57fb5e;
+}
+
+.selected.medium {
+  background-color: #ffab30;
+}
+
+.selected.hard {
+  background-color: #ff2010;
 }
 
 button {
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   padding: 20px 40px;
-  background-color: #007bff;
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
-  border-radius: 5px;
+  border-radius: 30%;
   cursor: pointer;
 }
 
-  button:hover {
-    background-color: #0056b3;
+button:hover {
+  background-color: darkgreen;
+  color: white;
+  font-weight:bold;
+}
+
+.loading_start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.loading_start span {
+  font-size: 1.7rem;
+  color: white;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
   }
+
+  100% {
+    transform: rotate(360deg);
+  }
+} 
