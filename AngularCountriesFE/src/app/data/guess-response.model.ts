@@ -16,6 +16,7 @@ export class GuessResponse {
     public latitude: number,
     public latitudeResponse: number,
     public longitude: number,
-    public longitudeResponse: number
+    public longitudeResponse: number,
+    public correctCountry: string
   ) { }
 }

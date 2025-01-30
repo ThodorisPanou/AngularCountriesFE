@@ -68,7 +68,7 @@
       <button class="button-71" role="button" (click)="playAgain()">Play Again</button>
     </div>
     <div class="message" id="lost" *ngIf="(!sucessfullGuess && GuessCount >= MaxGuess)">
-      You Lost!
+      You Lost! You Had To Guess: {{correctCountry}}
       <button class="button-71" role="button" (click)="playAgain()">Play Again</button>
     </div>
   </div>

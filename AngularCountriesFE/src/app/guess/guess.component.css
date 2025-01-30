@@ -78,7 +78,7 @@ tr.success {
   align-items: center;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 40px;
+  padding-top: 15px;
   background-color: transparent;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -134,13 +134,11 @@ tr.success {
   color: green;
 }
 
-/* Style for the congratulatory message */
 .message {
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   font-size: 2em;
   font-weight: bold;
   color: darkgreen;

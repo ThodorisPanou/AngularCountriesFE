@@ -22,6 +22,7 @@ export class GuessComponent implements OnInit {
   fetchC: boolean = false;
   fetchLoading: boolean = true;
   guessClosed: boolean = (this.GuessCount > this.MaxGuess) || (this.sucessfullGuess);
+  correctCountry: string = "";
 
   constructor(private countryService: CountryService,
     private gameSettingsService: GameSettingsService,
@@ -37,7 +38,6 @@ export class GuessComponent implements OnInit {
     this.countryService.getCountries().subscribe(
       (data) => {
         this.countries = data;
-        console.log(data);
         this.fetchC = true;
       },
       (error) => {
@@ -58,6 +58,9 @@ export class GuessComponent implements OnInit {
           this.userInput = "";
           this.guessedCountries.push(this.response);
           this.sucessfullGuess = this.response.success;
+          if (data.correctCountry != null) {
+            this.correctCountry = data.correctCountry;
+          }
         },
         (error) => {
           console.error('Error receiving response', error);
